@@ -1,0 +1,17 @@
+= Learn Ruby on Rails 5.1
+Stefan Wintermeyer
+v5.1.0, 2016-03-20
+:doctype: book
+:producer: Stefan Wintermeyer
+:keywords: Ruby on Rails, Rails, Ruby, Framework, MVC
+:copyright: Stefan Wintermeyer
+:imagesdir: images
+:icons: font
+:icon-set: fa
+:toc:
+:source-highlighter: pygments
+ifndef::ebook-format[:leveloffset: 1]
+
+include::preface.adoc[]
+
+include::chapter-ruby-basics.adoc[]
