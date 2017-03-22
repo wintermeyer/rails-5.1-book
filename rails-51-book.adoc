@@ -17,3 +17,4 @@ include::preface.adoc[]
 :leveloffset: +1
 include::chapter-how-to.adoc[]
 include::chapter-ruby-basics.adoc[]
+include::chapter-first-steps-with-rails.adoc[]
