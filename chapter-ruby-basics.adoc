@@ -1,11 +1,5 @@
 [[ruby-basics]]
-= Ruby Basics
-
-This book requires basic knowledge of HTML, plus the reader - you, in
-other words - should also have a basic understanding of programming.
-
-NOTE: The beginning of this chapter is going to be a bit boring.
-      Bear with me. It's worth it.
+= Ruby Introduction
 
 This chapter is a tightrope walk between oversimplification and a degree
 of detail that is unnecessary for a Rails newbie. After all, the
@@ -20,7 +14,7 @@ It is easy to program in Ruby, but Ruby is not a simple language.
 [[ruby-version]]
 == Ruby 2.4
 
-We are goig to use Ruby 2.4. You can check the installed Ruby version
+We are going to use Ruby 2.4. You can check the installed Ruby version
 by running the command `ruby -v`:
 
 [source,bash]
@@ -28,13 +22,16 @@ $ ruby -v
 ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-darwin16]
 $
 
-[[hello-world]]
-== Hello World
+[[chapter1-basics]]
+== Basics
 
 Ruby is a scripting language. So it is not compiled and then executed,
 but read by an interpreter and then processed line by line.
 
-A simple Ruby program `hello-world.rb` consists of one line of code:
+[[hello-world]]
+=== Hello World
+
+A simple `hello-world.rb` program consists of one line of code:
 
 [source,ruby]
 .hello-world.rb
@@ -136,8 +133,11 @@ puts '1#2#3#4#5#6#'  # Comment on this
 
 When programming, you do not always have a Ruby handbook available.
 Fortunately, the Ruby developers thought of this and provided a built-in
-help feature in form of the program `ri` (of course only if you have
-installed the documentation which is the default).
+help feature in form of the program `ri`.
+
+NOTE: Of course only if you have installed the documentation which is
+      the default. If you used `rvm` to install Ruby you can run
+      `rvm docs generate` to generate the documentation
 
 This is a typical chicken and egg situation. How can I explain the Ruby
 help feature, if we are only just getting started with Ruby? So I am
@@ -151,7 +151,7 @@ $ ri String
 $
 ----
 
-TIP: Most times it is just easier and more informative to use Google.
+TIP: Many times it is easier and more informative to use Google instead of ri.
 
 [[irb]]
 irb
@@ -869,17 +869,246 @@ list the methods that we have defined, then we can do it like this:
 >> exit
 ----
 
+[[basic-classes]]
+== Basic Classes
+
+There are many pre defined Classes available in Ruby. For a newbie the probably
+most important ones handle numbers and strings.
+
+[[strings]]
+=== Strings
+
+Let's experiment a little bit in the `irb`. The method `.class` tells us
+which class we are dealing with.
+
+[source,bash]
+----
+$ irb
+>> "First test"
+=> "First test"
+>> "First test".class
+=> String
+----
+
+That was easy. As you can see, Ruby “automagically” creates an object of
+the class `String`. We could also do this by explicitly calling the
+method `new`:
+
+[source,bash]
+----
+>> String.new("Second test")
+=> "Second test"
+>> String.new("Second test").class
+=> String
+----
+
+If we call `String.new` or `String.new()` without a parameter, this also
+creates an object of the class `String`. But it is an empty String:
+
+[source,bash]
+----
+>> String.new
+=> ""
+>> String.new.class
+=> String
+>> exit
+----
+
+[[single-and-double-quotations-marks]]
+==== Single and Double Quotations Marks
+
+Strings can be defined either in single quotes or double quotes.
+
+There is a special feature for the double quotes: you can integrate
+expressions with the construct `#{}`. The result is then automatically
+inserted in the corresponding place in the string.
+
+To show this we have to jump ahead and use variables in the example:
+
+[source,bash]
+----
+$ irb
+>> a = "blue"
+=> "blue"
+>> b = "Color: #{a}"
+=> "Color: blue"
+>> exit
+----
+
+If the result of the expression is not a string, Ruby tries to apply the
+method `to_s` in order to convert the value of the object into a string.
+Let's try that by integrating an Integer into a String:
+
+[source,bash]
+----
+$ irb
+>> a = 1
+=> 1
+>> b = "A test: #{a}"
+=> "A test: 1"
+>> a.class
+=> Integer
+>> b.class
+=> String
+>> exit
+----
+
+NOTE: If we mention single or double quotation marks in the
+      context of strings, we do not mean typographically correct
+      curly quotation marks (see http://en.wikipedia.org/wiki/Quotation_mark[wikipedia.org/wiki/Quotation_mark]), but the ASCII symbols referred to as _apostrophe_ (`'`) or _quotation mark_(`"`).
+
+[[built-in-methods-for-string]]
+==== Built-In Methods for String
+
+Most classes already come with a bundle of very useful methods. These
+methods are always written after the relevant object, separated by a
+point.
+
+Here are a few examples for methods of the class `String`.
+
+[source,bash]
+----
+$ irb
+>> a = 'A dog'
+=> "A dog"
+>> a.class
+=> String
+>> a.size
+=> 5
+>> a.downcase
+=> "a dog"
+>> a.upcase
+=> "A DOG"
+>> a.reverse
+=> "god A"
+>> exit
+----
+
+With `instance_methods(false)` you can get a list of the build in
+methods:
+
+[source,bash]
+----
+$ irb
+>> String.instance_methods(false)
+=> [:include?, :%, :*, :+, :to_c, :unicode_normalize, :unicode_normalize!,
+:unicode_normalized?, :count, :partition, :unpack, :unpack1, :sum, :next,
+:casecmp, :casecmp?, :insert, :bytesize, :match, :match?, :succ!, :+@,
+:-@, :index, :rindex, :<=>, :replace, :clear, :upto, :getbyte, :==, :===,
+:setbyte, :=~, :scrub, :[], :[]=, :chr, :scrub!, :dump, :byteslice,
+:upcase, :next!, :empty?, :eql?, :downcase, :capitalize, :swapcase,
+:upcase!, :downcase!, :capitalize!, :swapcase!, :hex, :oct, :split,
+:lines, :reverse, :chars, :codepoints, :prepend, :bytes, :concat, :<<,
+:freeze, :inspect, :intern, :end_with?, :crypt, :ljust, :reverse!, :chop,
+:scan, :gsub, :ord, :start_with?, :length, :size, :rstrip, :succ, :center,
+:sub, :chomp!, :sub!, :chomp, :rjust, :lstrip!, :gsub!, :chop!, :strip,
+:to_str, :to_sym, :rstrip!, :tr, :tr_s, :delete, :to_s, :to_i, :tr_s!,
+:delete!, :squeeze!, :each_line, :squeeze, :strip!, :each_codepoint,
+:lstrip, :slice!, :rpartition, :each_byte, :each_char, :to_f, :slice,
+:ascii_only?, :encoding, :force_encoding, :b, :valid_encoding?, :tr!,
+:encode, :encode!, :hash, :to_r]
+>> exit
+----
+
+[[numbers]]
+=== Numbers
+
+[[integers]]
+==== Integers
+
+Ruby used to have different types of Integers depending on the length of the
+number. With version 2.4 things got easier: We just deal with `Integer`.
+
+[source,bash]
+----
+$ irb
+>> 23.class
+=> Integer
+>> 230000000000000000000.class
+=> Integer
+>> (23*10000).class
+=> Integer
+>> exit
+----
+
+[[floats]]
+==== Floats
+
+`Float` is a class for real numbers (“floating point numbers”). The
+decimal separator is a point.
+
+[source,bash]
+----
+$ irb
+>> a = 20.424
+=> 20.424
+>> a.class
+=> Float
+>> exit
+----
+
+[[mixed-class-calculations]]
+==== Mixed Class Calculations
+
+Adding two integers will result in an integer. Adding an integer and a float will result in a float:
+
+[source,bash]
+----
+$ irb
+>> a = 10
+=> 10
+>> b = 23
+=> 23
+>> (a + b).class
+=> Integer
+>> (a + 3.13).class
+=> Float
+>> exit
+----
+
+[[boolean-values-and-nil]]
+=== Boolean Values and nil
+
+For boolean values (`true` and `false`) and for `nil` (no value) there
+are separate classes:
+
+[source,bash]
+----
+$ irb
+>> true.class
+=> TrueClass
+>> false.class
+=> FalseClass
+>> nil.class
+=> NilClass
+>> exit
+----
+
+`nil` (no value) is, by the way, the contraction of the Latin word
+_nihil_ (nothing) or, if you look at it in terms of programming history,
+the term derives from “_not in list_” from the legacy of the programming
+language Lisp (the name is an acronym of _List Processing_).
+
 [[variables]]
 == Variables
-
-You already know that everything in Ruby is an object. So a variable
-must also be an object.
 
 [[naming-conventions]]
 === Naming Conventions
 
-Normal variables are written in lower case. Constants start with an
-upper case letter.
+Normal variables are written in lower case. Please use `snake_case`. Same goes
+for symbols and methods.
+
+[source,bash]
+----
+$ irb
+>> pi = 3.14
+=> 3.14
+>> exit
+----
+
+==== Constants
+
+Constants start with an upper case letter.
 
 WARNING: A constant can also be overwritten with a new value since
          Ruby 2.3 (but you will get a warning message). So please
@@ -907,172 +1136,6 @@ variable name. But if you want to be polite towards other programmers
 who probably do not have those characters directly available on their
 keyboards, it is better to stick to pure ASCII.
 
-[[strings]]
-=== Strings
-
-Let's experiment a little bit in the `irb`. The method `.class` tells us
-which class we are dealing with.
-
-[source,bash]
-----
-$ **irb**
->> **a = 'First test'**
-=> "First test"
->> **a.class**
-=> String
-----
-
-That was easy. As you can see, Ruby “automagically” creates an object of
-the class `String`. We could also do this by explicitly calling the
-method `new`:
-
-[source,bash]
-----
->> **b = String.new('Second test')**
-=> "Second test"
->> **b.class**
-=> String
-----
-
-If we call `String.new` without a parameter, this also creates an object
-of the class `String`. But it is an empty String:
-
-[source,bash]
-----
->> **c = String.new**
-=> ""
->> **c.class**
-=> String
->> **exit**
-$
-----
-
-[[single-and-double-quotations-marks]]
-==== Single and Double Quotations Marks
-
-Strings can be defined either in single quotes or double quotes.
-
-NOTE: If we mention single or double quotation marks in the
-      context of strings, we do not mean typographically correct
-      curly quotation marks (see http://en.wikipedia.org/wiki/Quotation_mark[wikipedia.org/wiki/Quotation_mark]), but the ASCII symbols referred to as _apostrophe_ (`'`) or _quotation mark_(`"`).
-
-There is a special feature for the double quotes: you can integrate
-expressions with the construct `#{}`. The result is then automatically
-inserted in the corresponding place in the string.
-
-Example:
-
-[source,bash]
-----
-$ **irb**
->> **a = 'blue'**
-=> "blue"
->> **b = "Color: #{a}"**
-=> "Color: blue"
->> **b.class**
-=> String
->> **exit**
-$
-----
-
-If the result of the expression is not a string, Ruby tries to apply the
-method `to_s` in order to convert the value of the object into a string.
-
-[[integers]]
-=== Integers
-
-[[fixnum-and-bignum]]
-==== Fixnum and Bignum
-
-`Fixnum` and `Bignum` are `Integer` classes. A `Fixnum` is an `Integer`
-that can be saved in a `Word`. If a `Fixnum` gets bigger, it
-automatically becomes a `Bignum`. Here is an example where a becomes
-larger and by that becomes a `Bignum`.
-
-[source,bash]
-----
-$ **irb**
->> **20.class**
-=> Fixnum
->> **a = 20**
-=> 20
->> **a.class**
-=> Fixnum
->> **a = a * 5555555555**
-=> 111111111100
->> **a.class**
-=> Fixnum
->> **a = a * 5555555555**
-=> 617283950493827160500
->> **a.class**
-=> Bignum
->> **exit**
-$
-----
-
-[[floats]]
-==== Floats
-
-`Float` is a class for real numbers (“floating point numbers”). The
-decimal separator is a point.
-
-[source,bash]
-----
-$ **irb**
->> **a = 20.424**
-=> 20.424
->> **a.class**
-=> Float
->> **42.2.class**
-=> Float
->> **exit**
-$
-----
-
-[[simple-calculations]]
-==== Simple Calculations
-
-Adding two integers will result in an integer. Adding an integer and a float will result in a float:
-
-[source,bash]
-----
-$ **irb**
->> **a = 10**
-=> 10
->> **b = 23**
-=> 23
->> **a + b**
-=> 33
->> **(a + b).class**
-=> Fixnum
->> **(a + 3.14).class**
-=> Float
->> **exit**
-----
-
-[[boolean-values-and-nil]]
-=== Boolean Values and nil
-
-For boolean values (`true` and `false`) and for `nil` (no value) there
-are separate classes:
-
-[source,bash]
-----
-$ **irb**
->> **true.class**
-=> TrueClass
->> **false.class**
-=> FalseClass
->> **nil.class**
-=> NilClass
->> **exit**
-$
-----
-
-`nil` (no value) is, by the way, the contraction of the Latin word
-_nihil_ (nothing) or, if you look at it in terms of programming history,
-the term derives from “_not in list_” from the legacy of the programming
-language Lisp (the name is an acronym of _List Processing_).
 
 [[scope-of-variables]]
 === Scope of Variables
@@ -1092,53 +1155,55 @@ the current method). The following example defines two methods which use
 the same local variable radius. Because they are local they don't
 interact with each other:
 
+[source,ruby]
+.variable-a.rb
+----
+def area(radius)
+  3.14 * radius * radius
+end
+
+def circumference(radius)
+  2 * 3.14 * radius
+end
+----
+
 [source,bash]
 ----
-$ **irb**
->> **def area(radius)**
->> **  3.14 * radius * radius**
->> **end**
-=> :area
->> **def circumference(radius)**
->> **  2 * 3.14 * radius**
->> **end**
-=> :circumference
->> **area(10)**
+$ irb
+>> load './variable-a.rb'
+=> true
+>> area(10)
 => 314.0
->> **circumference(1)**
+>> circumference(1)
 => 6.28
->> **exit**
-$
+>> exit
 ----
 
 [[global-variables-aaa]]
 ==== Global Variables (`$aaa`)
 
 A global variable starts with a `$`-sign and is accessible in the entire
-programm. Example:
+programm. Example programm:
+
+[source,ruby]
+.variable-b.rb
+----
+$value = 10
+
+def example
+  $value = 20
+end
+
+puts $value
+example
+puts $value
+----
 
 [source,bash]
 ----
-$ **irb**
->> **$value = 10**
-=> 10
->> **puts $value**
+$ ruby variable-b.rb
 10
-=> nil
->> **def example**
->>   **$value = 20**
->> **end**
-=> :example
->> **puts $value**
-10
-=> nil
->> **example**
-=> 20
->> **puts $value**
 20
-=> nil
->> **exit**
-$
 ----
 
 Global variables are used very rarely! You wouldn't harm yourself by
@@ -1181,7 +1246,7 @@ If you start this program, the following output will appear:
 
 [source,bash]
 ----
-$ **ruby color.rb**
+$ ruby color.rb
 white
 red
 $
@@ -1200,6 +1265,25 @@ the instance. This kind of method is called a setter method.
 In order to keep the amount of chicken and egg problems in this chapter
 at a manageable level, we need to go back to the topic Methods and
 combine what we have learned so far.
+
+[[method-chaining]]
+=== Method Chaining
+
+You may not think of it straight away, but once you have got used to
+working with Ruby, then it makes perfect sense (and is perfectly
+logical) to chain different methods.
+
+[source,bash]
+----
+$ irb
+>> a = 'a blue car'
+=> "a blue car"
+>> a.upcase
+=> "A BLUE CAR"
+>> a.upcase.reverse
+=> "RAC EULB A"
+>> exit
+----
 
 [[getters-and-setters]]
 === Getters and Setters
@@ -1239,7 +1323,7 @@ The execution of the program:
 
 [source,bash]
 ----
-$ **ruby room.rb**
+$ ruby room.rb
 D: 1
 W: 1
 $
@@ -1367,92 +1451,6 @@ puts "D: #{kitchen.doors}"
 puts "W: #{kitchen.windows}"
 ----
 
-[[built-in-methods-for-string]]
-=== Built-In Methods for String
-
-Most classes already come with a bundle of very useful methods. These
-methods are always written after the relevant object, separated by a
-point.
-
-Here are a few examples for methods of the class `String`.
-
-[source,bash]
-----
-$ **irb**
->> **a = 'A dog'**
-=> "A dog"
->> **a.class**
-=> String
->> **a.size**
-=> 5
->> **a.downcase**
-=> "a dog"
->> **a.upcase**
-=> "A DOG"
->> **a.reverse**
-=> "god A"
->> **exit**
-$
-----
-
-With `instance_methods(false)` you can get a list of the build in
-methods:
-
-[source,bash]
-----
-$ **irb**
->> **String.instance_methods(false)**
-=> [:<=>, :==, :===, :eql?, :hash, :casecmp, :+, :*, :%, :[], :[]=, :insert, :length,
-:size, :bytesize, :empty?, :=~, :match, :succ, :succ!, :next, :next!, :upto, :index,
-:rindex, :replace, :clear, :chr, :getbyte, :setbyte, :byteslice, :scrub, :scrub!,
-:freeze, :to_i, :to_f, :to_s, :to_str, :inspect, :dump, :upcase, :downcase,
-:capitalize, :swapcase, :upcase!, :downcase!, :capitalize!, :swapcase!, :hex, :oct,
-:split, :lines, :bytes, :chars, :codepoints, :reverse, :reverse!, :concat, :<<,
-:prepend, :crypt, :intern, :to_sym, :ord, :include?, :start_with?, :end_with?,
-:scan, :ljust, :rjust, :center, :sub, :gsub, :chop, :chomp, :strip, :lstrip, :rstrip,
-:sub!, :gsub!, :chop!, :chomp!, :strip!, :lstrip!, :rstrip!, :tr, :tr_s, :delete,
-:squeeze, :count, :tr!, :tr_s!, :delete!, :squeeze!, :each_line, :each_byte,
-:each_char, :each_codepoint, :sum, :slice, :slice!, :partition, :rpartition,
-:encoding, :force_encoding, :b, :valid_encoding?, :ascii_only?, :unpack, :encode,
-:encode!, :to_r, :to_c, :unicode_normalize, :unicode_normalize!, :unicode_normalized?]
->> **exit**
-$
-----
-
-If you are not sure what one of these methods does you can use `ri` to
-look it up:
-
-[source,bash]
-----
-$ **ri String.size**
-= String.size
-
-(from ruby site)
---------------------------
-  str.size     -> integer
-
---------------------------
-
-Returns the character length of str.
-----
-
-[[method-chaining]]
-=== Method Chaining
-
-You may not think of it straight away, but once you have got used to
-working with Ruby, then it makes perfect sense (and is perfectly
-logical) to chain different methods.
-
-[source,bash]
-----
-$ **irb**
->> **a = 'A dog'**
-=> "A dog"
->> **a.upcase.reverse**
-=> "GOD A"
->> **exit**
-$
-----
 
 [[converting-from-one-to-the-other-casting]]
 === Converting from One to the Other: Casting
@@ -1463,17 +1461,16 @@ method `.to_s` to convert a `Fixnum` to a `String`.
 
 [source,bash]
 ----
-$ **irb**
->> **a = 10**
+$ irb
+>> a = 10
 => 10
->> **a.class**
-=> Fixnum
->> **b = a.to_s**
+>> a.class
+=> Integer
+>> b = a.to_s
 => "10"
->> **b.class**
+>> b.class
 => String
->> **exit**
-$
+>> exit
 ----
 
 NOTE: Incidentally, that is exactly what `puts` does if you use `puts`
@@ -1484,17 +1481,16 @@ Now we use the method `.to_i` to change a `Float` to a `Fixnum`.
 
 [source,bash]
 ----
-$ **irb**
->> **c = 10.0**
+irb
+>> c = 10.0
 => 10.0
->> **c.class**
+>> c.class
 => Float
->> **d = c.to_i**
+>> d = c.to_i
 => 10
->> **d.class**
-=> Fixnum
->> **exit**
-$
+>> d.class
+=> Integer
+>> exit
 ----
 
 [[method-to_s-for-your-own-classes]]
@@ -1506,26 +1502,32 @@ an object via the method `to_s`).
 
 Here is an example:
 
+[source,ruby]
+.person-a.rb
+----
+class Person
+  def initialize(first_name, last_name)
+    @first_name = first_name
+    @last_name = last_name
+  end
+
+  def to_s
+    "#{@first_name} #{@last_name}"
+  end
+end
+----
+
 [source,bash]
 ----
-$ **irb**
->> **class Person**
->>   **def initialize(first_name, last_name)**
->>     **@first_name = first_name**
->>     **@last_name = last_name**
->>   **end**
->>   **def to_s**
->>     **"#{@first_name} #{@last_name}"**
->>   **end**
->> **end**
-=> :to_s
->> **person1 = Person.new('Stefan', 'Wintermeyer')**
-=> #<Person:0x007ffeaa84af98 @first_name="Stefan", @last_name="Wintermeyer">
->> **puts person1**
+$ irb
+>> load './person-a.rb'
+=> true
+>> sw = Person.new('Stefan', 'Wintermeyer')
+=> #<Person:0x007fa95d030558 @first_name="Stefan", @last_name="Wintermeyer">
+>> puts sw
 Stefan Wintermeyer
 => nil
->> **exit**
-$
+>> exit
 ----
 
 [[is-a-method]]
@@ -1536,14 +1538,14 @@ find out by looking it up in `ri`:
 
 [source,bash]
 ----
-$ **ri -T String.+**
+$ ri -T String.+
 String.+
 
 (from ruby site)
---------------------------------
+------------------------------------------------------------------------------
   str + other_str   -> new_str
 
---------------------------------
+------------------------------------------------------------------------------
 
 Concatenation---Returns a new String containing other_str
 concatenated to str.
@@ -1551,21 +1553,21 @@ concatenated to str.
   "Hello from " + self.to_s   #=> "Hello from main"
 ----
 
-hmmm ... Let's see what it says for `Fixnum`:
+hmmm ... Let's see what it says for `Integer`:
 
 [source,bash]
 ----
-$ **ri -T Fixnum.+**
-Fixnum.+
+$ ri -T Integer.+
+Integer.+
 
 (from ruby site)
------------------------------------
-  fix + numeric  ->  numeric_result
+------------------------------------------------------------------------------
+  int + numeric  ->  numeric_result
 
------------------------------------
+------------------------------------------------------------------------------
 
 Performs addition: the class of the resulting object depends on the class of
-numeric and on the magnitude of the result.
+numeric and on the magnitude of the result. It may return a Bignum.
 ----
 
 Let's have a go and play around with this in `irb`. So we should be able
@@ -1574,17 +1576,16 @@ and add the second number in brackets as parameter:
 
 [source,bash]
 ----
-$ **irb**
->> **10 + 10**
+$ irb
+>> 10 + 10
 => 20
->> **10+10**
+>> 10+10
 => 20
->> **10.+10**
+>> 10.+10
 => 20
->> **10.+(10)**
+>> 10.+(10)
 => 20
->> **exit**
-$
+>> exit
 ----
 
 Aha! The plus symbol is indeed a method, and this method takes the next
@@ -1600,27 +1601,34 @@ programmers mad. I am going to show you a little demo in `irb` so you
 will believe me.
 
 The aim is overwriting the method `+` for `Fixnum`. We want the result
-of every addition to be the number 42.
+of every addition to be the number 42. We write a so call "monkey patch":
+
+[source,ruby]
+.monkey-patch-a.rb
+----
+class Integer
+  def +(name, *args, &blk)
+    42
+  end
+end
+----
+
+Now we use the `+` method before and after that monkey patch:
 
 [source,bash]
 ----
-$ **irb**
->> **10 + 10**
+irb
+>> 10 + 10
 => 20
->> **class Fixnum**
->>   **def +(name, *args, &blk)**
->>     **42**
->>   **end**
->> **end**
-=> :+
->> **10 + 10**
+>> load './monkey-patch-a.rb'
+=> true
+>> 10 + 10
 => 42
->> **exit**
-$
+>> exit
 ----
 
 First we perform a normal addition. Than we redefine the method `+` for
-the class `Fixnum`, and after that we do the calculation again. But this
+the class `Integer`, and after that we do the calculation again. But this
 time, with different results.
 
 [[if-condition]]
@@ -1665,16 +1673,16 @@ end
 IMPORTANT: The `==` is used to compare two values.
            Please don't mix it up with the single `=`.
 
-You can try an _expression_ really well in `irb`:
+You can test an _expression_ really well in `irb`:
 
 [source,bash]
 ----
-$ **irb**
->> **a = 10**
+$ irb
+>> a = 10
 => 10
->> **a == 10**
+>> a == 10
 => true
->> **exit**
+>> exit
 $
 ----
 
@@ -1767,19 +1775,18 @@ Here is an `irb` example:
 
 [source,bash]
 ----
-$ **irb**
->> **i = 0**
+$ irb
+>> i = 0
 => 0
->> **while i < 3 do**
-?>   **puts i**
->>   **i = i + 1**
->> **end**
+>> while i < 3 do
+?>   puts i
+>>   i = i + 1
+>> end
 0
 1
 2
 => nil
->> **exit**
-$
+>> exit
 ----
 
 `Until` loops are built similarly:
@@ -1795,21 +1802,20 @@ Again, here is the corresponding `irb` example:
 
 [source,bash]
 ----
-$ **irb**
->> **i = 5**
+$ irb
+>> i = 5
 => 5
->> **until i == 0**
->>   **i = i - 1**
->>   **puts i**
->> **end**
+>> until i == 0
+>>   i = i - 1
+>>   puts i
+>> end
 4
 3
 2
 1
 0
 => nil
->> **exit**
-$
+>> exit
 ----
 
 [[blocks-and-iterators]]
@@ -1841,67 +1847,62 @@ end
 
 Iterators are just a specific type of method. As you probably know, the
 word “_iterate_” means to repeat something. For example, the class
-Fixnum has the iterator times() Rubytimes. Let's see what help `ri`
-offers us:
+`Integer` has the iterator `times()`. Let's see what help `ri Integer.times`
+offers:
 
 [source,bash]
 ----
-$ **ri -T Fixnum.times**
-Fixnum.times
+$ ri -T Integer.times
+Integer.times
 
 (from ruby site)
-Implementation from Integer
--------------------------------------------
+------------------------------------------------------------------------------
   int.times {|i| block }  ->  self
   int.times               ->  an_enumerator
--------------------------------------------
 
-Iterates block int times, passing in values from zero to int -
-1.
+------------------------------------------------------------------------------
 
-If no block is given, an enumerator is returned instead.
+Iterates the given block int times, passing in values from zero to
+int - 1.
+
+If no block is given, an Enumerator is returned instead.
 
   5.times do |i|
     print i, " "
   end
-
-produces:
-
-  0 1 2 3 4
+  #=> 0 1 2 3 4
 ----
 
 And it also gives a nice example that we are going to try out in irb:
 
 [source,bash]
 ----
-$ **irb**
->> **5.times do |i|**
-?>   **puts i**
->> **end**
+$ irb
+>> 5.times do |i|
+?>   puts i
+>> end
 0
 1
 2
 3
 4
 => 5
->> **exit**
-$
+>> exit
 ----
 
 There is also a single-line notation for small blocks:
 
 [source,bash]
 ----
-$ **irb**
->> **5.times { |i| puts i }**
+$ irb
+>> 5.times { |i| puts i }
 0
 1
 2
 3
 4
 => 5
->> **exit**
-$
+>> exit
 ----
 
 By the way, an iterator does not necessarily have to pass a variable to
@@ -1909,8 +1910,8 @@ the block:
 
 [source,bash]
 ----
-$ **irb**
->> **5.times { puts 'example' }**
+$ irb
+>> 5.times { puts 'example' }
 example
 example
 example
@@ -1918,7 +1919,6 @@ example
 example
 => 5
 >> exit
-$
 ----
 
 [[blocks]]
@@ -1935,26 +1935,25 @@ implementing a loop. `ri` offers a nice example for this, too:
 
 [source,bash]
 ----
-$ **ri -T Fixnum.upto**
-Fixnum.upto
+$ ri -T Integer.upto
+Integer.upto
 
 (from ruby site)
-Implementation from Integer
--------------------------------------------------
+------------------------------------------------------------------------------
   int.upto(limit) {|i| block }  ->  self
   int.upto(limit)               ->  an_enumerator
--------------------------------------------------
 
-Iterates block, passing in integer values from int up to and
+------------------------------------------------------------------------------
+
+Iterates the given block, passing in integer values from int up to and
 including limit.
 
-If no block is given, an enumerator is returned instead.
+If no block is given, an Enumerator is returned instead.
+
+For example:
 
   5.upto(10) { |i| print i, " " }
-
-produces:
-
-  5 6 7 8 9 10
+  #=> 5 6 7 8 9 10
 ----
 
 [[arrays-and-hashes]]
@@ -1970,13 +1969,12 @@ An array is a list of objects. Let's play around in `irb:`
 
 [source,bash]
 ----
-$ **irb**
->> **a = [1,2,3,4,5]**
+$ irb
+>> a = [1,2,3,4,5]
 => [1, 2, 3, 4, 5]
->> **a.class**
+>> a.class
 => Array
->> **exit**
-$
+>> exit
 ----
 
 That is simple and easy to understand.
@@ -1985,43 +1983,43 @@ Let's see if it also works with strings in the array:
 
 [source,bash]
 ----
-$ **irb**
->> **a = ['Test', 'Banana', 'blue']**
+$ irb
+>> a = ['Test', 'Banana', 'blue']
 => ["Test", "Banana", "blue"]
->> **a.class**
+>> a.class
 => Array
->> **a[1]**
+>> a[1]
 => "Banana"
->> **a[1].class**
+>> a[1].class
 => String
->> **exit**
-$
+>> exit
 ----
 
 That also works.
 
 So all that's missing now is an array with a mixture of both. Obviously
 that will work, too, because the array stores objects and it does not
-matter which kind of objects they are (i.e. `String`, `Fixnum`, `Float`,
+matter which kind of objects they are (i.e. `String`, `Integer`, `Float`,
 ...). But a little test can't hurt:
 
 [source,bash]
 ----
-$ **irb**
->> **a = [1, 2.2, 'House', nil]**
+$ irb
+>> a = [1, 2.2, 'House', nil]
 => [1, 2.2, "House", nil]
->> **a.class**
+>> a.class
 => Array
->> **a[0]**
+>> a[0]
 => 1
->> **a[0].class**
-=> Fixnum
->> **a[2]**
-=> "House"
->> **a[2].class**
+>> a[0].class
+=> Integer
+>> a[1].class
+=> Float
+>> a[2].class
 => String
->> **exit**
-$
+>> a[3].class
+=> NilClass
+>> exit
 ----
 
 Arrays can also be created via the method `new` (like
@@ -2030,15 +2028,14 @@ array via the method `<<`. Here is the corresponding example:
 
 [source,bash]
 ----
-$ **irb**
->> **a = Array.new**
+$ irb
+>> a = Array.new
 => []
->> **a << 'first item'**
+>> a << 'first item'
 => ["first item"]
->> **a << 'second item'**
+>> a << 'second item'
 => ["first item", "second item"]
->> **exit**
-$
+>> exit
 ----
 
 [[iterator-each]]
@@ -2049,44 +2046,20 @@ You can work your way through an array piece by piece via the method
 
 [source,bash]
 ----
-$ **irb**
->> **cart = ['eggs', 'butter']**
+$ irb
+>> cart = ['eggs', 'butter']
 => ["eggs", "butter"]
->> **cart.each do |item|**
-?>   **puts item**
->> **end**
+>> cart.each do |item|
+?>   puts item
+>> end
 eggs
 butter
 => ["eggs", "butter"]
->> **exit**
-$
+>> exit
 ----
 
-Once more, `ri` provides help and an example in case you forget how to
-use each:
-
-[source,bash]
-----
-$ **ri -T Array.each**
-Array.each
-
-(from ruby site)
-
-  ary.each {|item| block }   -> ary
-  ary.each                   -> an_enumerator
-
-Calls block once for each element in self, passing that element
-as a parameter.
-
-If no block is given, an enumerator is returned instead.
-
-  a = [ "a", "b", "c" ]
-  a.each {|x| print x, " -- " }
-
-produces:
-
-  a -- b -- c --
-----
+`ri Array.each` provides help and an example in case you forget how to
+use `each`.
 
 [[hashes]]
 === Hashes
@@ -2096,15 +2069,14 @@ strings as keys:
 
 [source,bash]
 ----
-$ **irb**
->> **prices = { 'egg' => 0.1, 'butter' => 0.99 }**
+$ irb
+>> prices = { 'egg' => 0.1, 'butter' => 0.99 }
 => {"egg"=>0.1, "butter"=>0.99}
->> **prices['egg']**
+>> prices['egg']
 => 0.1
->> **prices.count**
+>> prices.count
 => 2
->> **exit**
-$
+>> exit
 ----
 
 Of course, hashes can store not just strings as objects in the values,
@@ -2115,22 +2087,22 @@ xref:arrays[the section called "Arrays"]).
 ==== Symbols
 
 _Symbols_ are a strange concept and difficult to explain. But they are
-very useful and used frequently, amongst others with hashes. Normally,
-variables always create new objects:
+very useful and used frequently, amongst others with hashes.
+
+Normally, variables always create new objects:
 
 [source,bash]
 ----
-$ **irb**
->> **a = 'Example 1'**
+$ irb
+>> a = 'Example 1'
 => "Example 1"
->> **a.object_id**
+>> a.object_id
 => 70124141350360
->> **a = 'Example 2'**
+>> a = 'Example 2'
 => "Example 2"
->> **a.object_id**
+>> a.object_id
 => 70124141316700
->> **exit**
-$
+>> exit
 ----
 
 In both cases, we have the variable `a`, but object ID is different. We
@@ -2145,13 +2117,12 @@ suited to be a _key_:
 
 [source,bash]
 ----
-$ **irb**
->> **:a.class**
+$ irb
+>> :a.class
 => Symbol
->> **:a.object_id**
+>> :a.object_id
 => 702428
->> **exit**
-$
+>> exit
 ----
 
 Let's do another little experiment to make the difference clearer. We
@@ -2162,35 +2133,33 @@ time:
 
 [source,bash]
 ----
-$ **irb**
->> **'white'.object_id**
+$ irb
+>> 'white'.object_id
 => 70342874305700
->> **'white'.object_id**
+>> 'white'.object_id
 => 70342874300640
->> **'white'.object_id**
+>> 'white'.object_id
 => 70342874271720
->> **:white.object_id**
+>> :white.object_id
 => 1088668
->> **:white.object_id**
+>> :white.object_id
 => 1088668
->> **:white.object_id**
+>> :white.object_id
 => 1088668
->> **exit**
-$
+>> exit
 ----
 
 Using symbols as key for hashes is much more memory efficient:
 
 [source,bash]
 ----
-$ **irb**
->> **colors = { black: '#000000', white: '#FFFFFF' }**
+$ irb
+>> colors = { black: '#000000', white: '#FFFFFF' }
 => {:black=>"#000000", :white=>"#FFFFFF"}
->> **puts colors[:white]**
+>> puts colors[:white]
 #FFFFFF
 => nil
->> **exit**
-$
+>> exit
 ----
 
 You will frequently see symbols in Rails. If you want to find out more
@@ -2205,47 +2174,20 @@ step. Example:
 
 [source,bash]
 ----
-$ **irb**
->> **colors = {black: '#000000', white: '#FFFFFF' }**
+$ irb
+>> colors = {black: '#000000', white: '#FFFFFF' }
 => {:black=>"#000000", :white=>"#FFFFFF"}
->> **colors.each do |key, value|**
-?>   **puts "#{key} #{value}"**
->> **end**
+>> colors.each do |key, value|
+?>   puts "#{key} #{value}"
+>> end
 black #000000
 white #FFFFFF
 => {:black=>"#000000", :white=>"#FFFFFF"}
->> **exit**
-$
+>> exit
 ----
 
-Again, `ri` offers help and an example, in case you cannot remember one
-day how to use each:
-
-[source,bash]
-----
-$ **ri -T Hash.each**
-Hash.each
-
-(from ruby site)
-
-  hsh.each      {| key, value | block } -> hsh
-  hsh.each_pair {| key, value | block } -> hsh
-  hsh.each                              -> an_enumerator
-  hsh.each_pair                         -> an_enumerator
-
-Calls block once for each key in hash, passing the key-value pair
-as parameters.
-
-If no block is given, an enumerator is returned instead.
-
-  h = { "a" => 100, "b" => 200 }
-  h.each {|key, value| puts "#{key} is #{value}" }
-
-produces:
-
-  a is 100
-  b is 200
-----
+Again, `ri Hash.each` offers help and an example, in case you cannot remember one
+day how to use each.
 
 [[range]]
 == Range
@@ -2257,14 +2199,14 @@ iterator with each:
 
 [source,bash]
 ----
-$ **irb**
->> **(0..3)**
+$ irb
+>> (0..3)
 => 0..3
->> **(0..3).class**
+>> (0..3).class
 => Range
->> **(0..3).each do |i|**
-?>   **puts i**
->> **end**
+>> (0..3).each do |i|
+?>   puts i
+>> end
 0
 1
 2
@@ -2277,7 +2219,7 @@ Via the method `to_a` you can generate an array from a `Range`:
 
 [source,bash]
 ----
->> **(0..3).to_a**
+>> (0..3).to_a
 => [0, 1, 2, 3]
 >>
 ----
@@ -2289,7 +2231,7 @@ letters:
 
 [source,bash]
 ----
->> **('a'..'h').to_a**
+>> ('a'..'h').to_a
 => ["a", "b", "c", "d", "e", "f", "g", "h"]
 >>
 ----
@@ -2300,8 +2242,7 @@ by a comma. This is what it looks like:
 
 [source,bash]
 ----
->> **(0..3) == Range.new(0,3)**
+>> (0..3) == Range.new(0,3)
 => true
->> **exit**
-$
+>> exit
 ----
