@@ -146,7 +146,7 @@ end
 ----
 
 Hmmm ... the class `Country` is a child of `ApplicationRecord` which
-inherits from `ActiveRecord::Base`. Makes sense, as we are discussing
+inherits from `ApplicationRecord`. Makes sense, as we are discussing
 ActiveRecord in this chapter. ;-)
 
 [[the-attributes-id-created_at-and-updated_at]]
