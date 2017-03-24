@@ -24,3 +24,5 @@ include::chapter-first-steps-with-rails.adoc[]
 include::chapter-activerecord.adoc[]
 
 include::chapter-scaffolding.adoc[]
+
+include::chapter-routing.adoc[]
