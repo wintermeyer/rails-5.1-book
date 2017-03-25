@@ -28,3 +28,5 @@ include::chapter-scaffolding.adoc[]
 include::chapter-routing.adoc[]
 
 include::chapter-bundler-and-gems.adoc[]
+
+include::chapter-forms.adoc[]
