@@ -237,10 +237,10 @@ a search form which is not connected to a model:
 
 [source,erb]
 ----
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
+<%= form_with(url: '/search') do |f| %>
+  <%= f.label(:q, "Search for:") %>
+  <%= f.text_field(:q, id: :q) %>
+  <%= f.submit("Search") %>
 <% end %>
 ----
 
