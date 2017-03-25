@@ -34,3 +34,5 @@ include::chapter-forms.adoc[]
 include::chapter-test-driven-development.adoc[]
 
 include::chapter-cookies-and-sessions.adoc[]
+
+include::chapter-active_job.adoc[]
