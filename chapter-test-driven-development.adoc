@@ -589,7 +589,7 @@ the Rails application. As an example, we will write an integration test
 that tries to create a new user via the Web GUI, but omits the
 `login_name` and consequently gets corresponding flash error messages.
 
-A `rake generate scaffold` generates unit and functional tests, but not
+A `rails generate scaffold` generates unit and functional tests, but not
 integration tests. You can either do this manually in the directory
 `test/integration/` or more comfortably with
 `rails generate integration_test`. So let’s create an integration test:
@@ -651,7 +651,7 @@ corresponding workflow, you can rely in future on the fact that it will
 run through and you don’t have to try it out manually in the browser as
 well.
 
-[[rake-stats]]
+[[rails-stats]]
 == rails stats
 
 rails stats With `rails stats` you get an overview of your Rails project.
