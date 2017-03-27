@@ -40,3 +40,5 @@ include::chapter-active_job.adoc[]
 include::chapter-actionmailer.adoc[]
 
 include::chapter-i18n.adoc[]
+
+include::chapter-asset-pipeline.adoc[]
