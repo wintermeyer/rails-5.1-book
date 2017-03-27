@@ -42,3 +42,5 @@ include::chapter-actionmailer.adoc[]
 include::chapter-i18n.adoc[]
 
 include::chapter-asset-pipeline.adoc[]
+
+include::chapter-caching.adoc[]
