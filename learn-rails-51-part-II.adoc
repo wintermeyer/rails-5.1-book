@@ -1,9 +1,9 @@
-= Learn Ruby on Rails 5.1
+= Learn Rails 5.1 Part II
 Stefan Wintermeyer
-v5.1.0, 2016-03-20
+v5.1.0, 2016-03-27
 :doctype: book
 :producer: Stefan Wintermeyer
-:keywords: Ruby on Rails, Rails, Ruby, Framework, MVC
+:keywords: Ruby on Rails, Ruby on Rails 5.1, Rails, Ruby, Framework, MVC
 :copyright: Stefan Wintermeyer
 :imagesdir: images
 :icons: font
@@ -17,23 +17,7 @@ include::preface.adoc[]
 :leveloffset: +1
 include::chapter-how-to.adoc[]
 
-include::chapter-ruby-basics.adoc[]
-
-include::chapter-first-steps-with-rails.adoc[]
-
-include::chapter-activerecord.adoc[]
-
-include::chapter-scaffolding.adoc[]
-
-include::chapter-routing.adoc[]
-
-include::chapter-bundler-and-gems.adoc[]
-
-include::chapter-forms.adoc[]
-
 include::chapter-test-driven-development.adoc[]
-
-include::chapter-cookies-and-sessions.adoc[]
 
 include::chapter-active_job.adoc[]
 

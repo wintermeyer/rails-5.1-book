@@ -1,18 +1,19 @@
 [[preface]]
 = Preface
 
-This is my fifth Ruby on Rails book. My first one was for Rails 3.2.
-As much as Rails 5.1 is the best Rails version ever I want this book
-to be my best Rails book ever. I shorted a lot of examples to make it
-lighter and faster to read.
+This is my fifth Ruby on Rails book. It's splitted into two parts.
+The first part (the one you are reading now) covers all the basics.
+It gives you the important groundwork to create a Rails application.
+The second one dives into advance topics (e.g. TDD, I18n, Caching,
+ActionCable).
 
-I wrote this book for developers who learn best by following clean examples.
-I don’t like the idea of coding one big single application throughout a book
-but prefer smaller stand-alone code examples. Therefore you can skip a couple of
-pages or even complete chapters without losing context.
+I write for developers who learn best by following clean examples.
+I don’t like the idea of coding one big single application throughout
+a book but prefer smaller stand-alone code examples. Therefore you can
+skip a couple of pages or even complete chapters without losing context.
 
 Don’t let people fool you into believing that Ruby on Rails is easy to
-learn. It is not! It's probably the best and most effective framework
+learn. It is not! It's one of the best and most effective frameworks
 to develop web applications but it is hard to understand in the
 beginning. The worst mistake of all is to not learn Ruby before diving
 into Ruby on Rails. To avoid it this book starts with the
