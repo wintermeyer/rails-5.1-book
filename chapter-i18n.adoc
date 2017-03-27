@@ -1739,6 +1739,3 @@ can switch the language via the link at the top of the page.
 The best source of information on this topic can be found in the Rails
 documentation at http://guides.rubyonrails.org/i18n.html. This also
 shows how you can operate other backends for defining the translations.
-
-As so often, Railscasts.com offers a whole range of Railscasts on the
-topic I18n: http://railscasts.com/episodes?utf8=%E2%9C%93&search=i18n
