@@ -38,3 +38,5 @@ include::chapter-cookies-and-sessions.adoc[]
 include::chapter-active_job.adoc[]
 
 include::chapter-actionmailer.adoc[]
+
+include::chapter-i18n.adoc[]
