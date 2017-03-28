@@ -6,10 +6,8 @@ v5.1.0, 2016-03-27
 :keywords: Ruby on Rails, Ruby on Rails 5.1, Rails, Ruby, Framework, MVC
 :copyright: Stefan Wintermeyer
 :imagesdir: images
-:icons: font
-:icon-set: fa
 :toc:
-:toclevels: 4
+:toclevels: 2
 :source-highlighter: pygments
 
 include::preface-I.adoc[]
