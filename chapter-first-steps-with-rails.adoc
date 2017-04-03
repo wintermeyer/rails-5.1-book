@@ -420,7 +420,7 @@ $ rails server
 
 Visit that page with the URL http://localhost:3000/example/test
 
-image::screenshots/chapter03/erb_1+1_addition.png[ERB einfache addition]
+image::screenshots/chapter03/erb_1_plus_1_addition.png[ERB einfache addition]
 
 You may ask yourself: how can the result of adding two `Integer`s be
 displayed as a String? Let's first look up in `irb` if it really is a

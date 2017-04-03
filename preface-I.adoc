@@ -17,7 +17,7 @@ learn. It is not! It's one of the best and most effective frameworks
 to develop web applications but it is hard to understand in the
 beginning. The worst mistake of all is to not learn Ruby before diving
 into Ruby on Rails. To avoid it this book starts with the
-xref:ruby-basics[basics of Ruby]. You will not become a Ruby guru after
+xref:{ch-prefix}ruby-basics#ruby-basics[basics of Ruby]. You will not become a Ruby guru after
 reading it but you’ll understand the basic ideas and that is important.
 
 Shameless plug: Please contact me by e-mail to stefan.wintermeyer@amooma.de
