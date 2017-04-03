@@ -274,7 +274,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
 end
 ----
 
-In xref:#migrations["Migrations"] we will provide more
+In xref:migrations["Migrations"] we will provide more
 information on the individual data types and discuss available options.
 
 [[naming-conventions-country-vs.-country-vs.-countries]]
@@ -2695,7 +2695,7 @@ association makes more sense in this case.
 === Options
 
 Polymorphic associations can be configured with the same options as a
-normal xref:#has95many-1n-association[has_many association].
+normal xref:has95many-1n-association[has_many association].
 
 [[deletedestroy-a-record]]
 == Delete/Destroy a Record

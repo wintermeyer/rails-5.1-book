@@ -294,7 +294,7 @@ the file `config/application.rb`.
 In a Rails application aimed only at German users, it is unfortunately
 not enough to just translate all the views into German. The approach is
 in many respects similar to a multi-lingual Rails application (see the section
-xref:#multilingual-rails-application["Multilingual Rails
+xref:multilingual-rails-application["Multilingual Rails
 Application"]). Correspondingly, there will be a certain amount of
 repetition. I am going to show you the steps you need to watch out for
 by using a simple application as example.
