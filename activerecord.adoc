@@ -134,7 +134,7 @@ $ rails db:migrate
 ----
 
 NOTE: You will find more details on migrations in
-      xref:migrations[the section "Migrations"].
+      xref:activerecord#migrations[the section "Migrations"].
 
 Let's have a look at the file `app/models/country.rb`:
 
@@ -178,7 +178,7 @@ record.
 === Getters and Setters
 
 To read and write values of a SQL table row you can use by ActiveRecord
-provided xref:getters-and-setters[getters and setters].
+provided xref:ruby-basics#getters-and-setters[getters and setters].
 These `attr_accessors` are automatically
 created. The getter of the field `updated_at` for a given `Country` with
 the name `germany` would be `germany.updated_at`.
@@ -274,7 +274,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
 end
 ----
 
-In xref:migrations["Migrations"] we will provide more
+In xref:activerecord#migrations["Migrations"] we will provide more
 information on the individual data types and discuss available options.
 
 [[naming-conventions-country-vs.-country-vs.-countries]]
@@ -508,7 +508,7 @@ created_at: nil, updated_at: nil>
 ----
 
 TIP: For already existing records, you can also check for changes with
-     the method `changed?` (see xref:changed["changed?"]).
+     the method `changed?` (see xref:activerecord#changed["changed?"]).
      You can even use `netherland.population_changed?` to check if just
      the attribute `popluation` was changed.
 
@@ -598,19 +598,18 @@ of it:
 => nil
 ----
 
-hmmm... by using the `to_yaml` method suddenly the database has work to
-do. The reason for this behavior is optimization. Let's assume that you
-want to chain a couple of methods. Than it might be better for
-ActiveRecord to wait till the very last second which it does. It only
-requests the data from the SQL database when it has to do it (it's
-called xref:lazy-loading[Lazy Loading]). Until than it stores the request in a
-`ActiveRecord::Relation`.
+hmmm... by using the `to_yaml` method suddenly the database has work to do. The
+reason for this behavior is optimization. Let's assume that you want to chain a
+couple of methods. Than it might be better for ActiveRecord to wait till the
+very last second which it does. It only requests the data from the SQL database
+when it has to do it (it's called xref:activerecord#lazy-loading[Lazy Loading]).
+Until than it stores the request in a `ActiveRecord::Relation`.
 
 The result of `Country.all` is actually an `Array` of `Country`.
 
 If `Country.all` returns an array, then we should also be able to use
-xref:iterators[iterators] and xref:iterator-each[each], right?
-Yes, of course! That is the beauty of it. Here is a little experiment
+xref:ruby-basics#iterators[iterators] and xref:ruby-basics#iterator-each[each],
+right? Yes, of course! That is the beauty of it. Here is a little experiment
 with `each`:
 
 [source,bash]
@@ -659,7 +658,8 @@ feeding default values easily and quickly to a fresh installation. This
 is a normal Ruby program within the Rails environment. You have full
 access to all classes and methods of your application.
 
-With that you don't need to enter everything manually with `rails console` to xref:create[create] all initial records in a new Rails application.
+With that you don't need to enter everything manually with `rails console` to
+xref:activerecord#create[create] all initial records in a new Rails application.
 You can use the file `db/seeds.rb`:
 
 [source,ruby]
@@ -898,7 +898,7 @@ created_at: "2017-03-22 18:19:06", updated_at: "2017-03-22 18:19:06">]>
 => 3
 ----
 
-You can also use `where` to search for xref:range[ranges]:
+You can also use `where` to search for xref:ruby-basics#range[ranges]:
 
 [source,bash]
 ----
@@ -1490,10 +1490,10 @@ THE BEATLES
 [[editing-a-record]]
 == Editing a Record
 
-Adding and searching data is quite nice, but often you want to edit a
-record. To show how that's done I use the `album` database from the
-xref:searching-and-finding-with-queries[section "Searching and Finding
-with Queries"].
+Adding and searching data is quite nice, but often you want to edit a record. To
+show how that's done I use the `album` database from the
+xref:activerecord#searching-and-finding-with-queries[section "Searching and
+Finding with Queries"].
 
 [[simple-editing]]
 === Simple Editing
@@ -1590,7 +1590,7 @@ With the method `update` you can change several attributes of
 an object in one go and then immediately save them automatically.
 
 Let's use this method within the example used in
-xref:simple-editing[the section "Simple Editing"]:
+xref:activerecord#simple-editing[the section "Simple Editing"]:
 
 [source,bash]
 ----
@@ -2111,9 +2111,10 @@ updated_at: "2017-03-23 14:33:15">]>
 [[includes]]
 ==== includes
 
-`includes` is very similar to the method `joins` (see xref:joins[joins]).
-Again, you can use it to search within a 1:n association. Let's repeat
-the searches we just did with `includes` instead of `joins`:
+`includes` is very similar to the method `joins` (see
+xref:activerecord#joins[joins]). Again, you can use it to search within a 1:n
+association. Let's repeat the searches we just did with `includes` instead of
+`joins`:
 
 [source,bash]
 ----
@@ -2155,10 +2156,10 @@ by ActiveRecord, which takes longer and requires more resources.
 [[delete-and-destroy]]
 === delete and destroy
 
-With the methods `destroy`, `destroy_all`, `delete` and `delete_all` you
-can delete records, as described in
-xref:deletedestroy-a-record["Delete/Destroy a Record"]. In the context
-of `has_many`, this means that you can delete the `Product` records
+With the methods `destroy`, `destroy_all`, `delete` and `delete_all` you can
+delete records, as described in
+xref:activerecord#deletedestroy-a-record["Delete/Destroy a Record"]. In the
+context of `has_many`, this means that you can delete the `Product` records
 associated with a `Category` in one go:
 
 [source,bash]
@@ -2275,9 +2276,9 @@ updated_at: "2017-03-23 15:02:08">
 ----
 
 IMPORTANT: Please always remember the difference between the methods
-           `destroy` (see xref:destroy["destroy"]) and `delete`
-           (see xref:delete[the "delete"]). This association only works
-           with the method `destroy`.
+           `destroy` (see xref:activerecord#destroy["destroy"]) and `delete`
+           (see xref:activerecord#delete[the "delete"]). This association only
+           works with the method `destroy`.
 
 [[many-to-many-nn-association]]
 == Many-to-Many – n:n Association
@@ -2394,7 +2395,7 @@ end
 
 As we implement the associations via `has_many`, most things will
 already be familiar to you from the
-section xref:has95many-1n-association["has_many - 1:n Association"].
+section xref:activerecord#has_many-1n-association["has_many - 1:n Association"].
 I am going to show a few examples.
 
 We create a new `Order` object:
@@ -2695,7 +2696,7 @@ association makes more sense in this case.
 === Options
 
 Polymorphic associations can be configured with the same options as a
-normal xref:has95many-1n-association[has_many association].
+normal xref:activerecord#has_many-1n-association[has_many association].
 
 [[deletedestroy-a-record]]
 == Delete/Destroy a Record
@@ -2739,10 +2740,9 @@ end
 [[destroy]]
 === destroy
 
-With `destroy` you can remove a record and any existing dependencies are
-also taken into account (see for example `:dependent => :destroy` in
-the section xref:options["options"]). Simply put: to be on the
-safe side, it's better to use `destroy` because then the Rails system
+With `destroy` you can remove a record and any existing dependencies are also
+taken into account (see for example `:dependent => :destroy`). Simply put: to be
+on the safe side, it's better to use `destroy` because then the Rails system
 does more for you.
 
 Let's create a record and then destroy it again:
@@ -2915,7 +2915,7 @@ The record of the book 'Homo faber' is deleted, but the author is still
 in the database.
 
 As with `destroy`, an object also gets frozen when you use `delete` (see
-xref:destroy["destroy"]). The record is already
+xref:activerecord#destroy["destroy"]). The record is already
 removed from the database, but the object itself is still there.
 
 [[transactions]]
@@ -3142,8 +3142,8 @@ expiration_date: nil, created_at: nil, updated_at: nil>
 >> exit
 ----
 
-This works with the method `build` (see xref:build["build"]) and
-`create` (see xref:create["create"]).
+This works with the method `build` (see xref:activerecord#build["build"]) and
+`create` (see xref:activerecord#create["create"]).
 
 [[validation]]
 == Validation
@@ -3468,7 +3468,7 @@ validates :name,
 ----
 
 NOTE: For all error messages, please note the chapter
-      xref:internationalization[Internationalization].
+      xref:i18n#i18n[Internationalization].
 
 [[is]]
 is
@@ -3798,12 +3798,12 @@ validates :in_stock,
 ----
 
 NOTE: For all error messages, please note the chapter
-      xref:internationalization[Internationalization].
+      xref:i18n#i18n[Internationalization].
 
 [[exclusion]]
 === exclusion
 
-`exclusion` is the inversion of xref:inclusion[inclusion].
+`exclusion` is the inversion of xref:activerecord#inclusion[inclusion].
 You can define from which values the content of this
 attribute must not be created.
 
@@ -3841,7 +3841,7 @@ validates :in_stock,
 ----
 
 NOTE: For all error messages, please note the chapter
-      xref:internationalization[Internationalization].
+      xref:i18n#i18n[Internationalization].
 
 [[format]]
 === format
@@ -3881,7 +3881,7 @@ validates :email,
 ----
 
 NOTE: For all error messages, please note the chapter
-      xref:internationalization[Internationalization].
+      xref:i18n#i18n[Internationalization].
 
 [[general-validation-options]]
 === General Validation Options
@@ -4558,10 +4558,7 @@ Even though the e-mail address was entered partly with a capital
 letters, ActiveRecord has indeed converted all letters automatically to
 lower case via the `before_save` callback.
 
-In the chapter xref:action-mailer["Action Mailer"] you will
-find an example for the same model where we use an `after_create`
-callback to automatically send an e-mail to a newly created user.
-In the section xref:default-values["Default Values"] you will find
+In the section xref:activerecord#default-values["Default Values"] you will find
 an example for defining a default value for a new object via an
 `after_initialize` callback.
 

@@ -200,19 +200,18 @@ but not the value.
 [[sessions]]
 == Sessions
 
-As HTTP is a stateless protocol, we encounter special problems when
-developing applications. An individual web page has no connection to the
-next web page and they do not know of one another. But as you want to
-register only once on websites, not over and over again on each
-individual page, this can pose a problem. The solution is called session
-and Rails offers it to the programmer transparently as a `session[]`
-hash. Rails automatically creates a new session for each new visitor of
-the web page. This session is saved by default as cookie and so it
-is subject to the 4 kB limit. But you can also store the sessions in the
-database (see the section
-xref:saving-sessions-in-the-database["Saving Sessions in the Database"]).
-An independent and unique session ID is created automatically and the
-cookie is deleted by default when the web browser is closed.
+As HTTP is a stateless protocol, we encounter special problems when developing
+applications. An individual web page has no connection to the next web page and
+they do not know of one another. But as you want to register only once on
+websites, not over and over again on each individual page, this can pose a
+problem. The solution is called session and Rails offers it to the programmer
+transparently as a `session[]` hash. Rails automatically creates a new session
+for each new visitor of the web page. This session is saved by default as cookie
+and so it is subject to the 4 kB limit. But you can also store the sessions in
+the database (see the section
+xref:cookies-and-sessions#saving-sessions-in-the-database["Saving Sessions in
+the Database"]). An independent and unique session ID is created automatically
+and the cookie is deleted by default when the web browser is closed.
 
 The beauty of a Rails session is that we can not just save strings there
 as with cookies, but any object, hashes and arrays. So you can for example use

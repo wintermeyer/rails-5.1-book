@@ -3,15 +3,14 @@
 
 == Introduction
 
-In
-xref:creating-html-dynamically-with-erb["Creating HTML Dynamically with erb"] and
-xref:scaffolding-and-rest["Scaffolding and REST"] we came across _routes_.
-The configuration in `config/routes.rb`
-defines what happens in the Rails application when a user of a Rails
-application fetches a URL. A route can be static and dynamic and pass
-any dynamic values with variables to the controller. If several routes
-apply to a URL, the one that is listed at the top of `config/routes.rb`
-wins.
+In xref:first-steps-with-rails#creating-html-dynamically-with-erb["Creating HTML
+Dynamically with erb"] and
+xref:scaffolding-and-rest#scaffolding-and-rest["Scaffolding and REST"] we came
+across _routes_. The configuration in `config/routes.rb` defines what happens in
+the Rails application when a user of a Rails application fetches a URL. A route
+can be static and dynamic and pass any dynamic values with variables to the
+controller. If several routes apply to a URL, the one that is listed at the top
+of `config/routes.rb` wins.
 
 TIP: If you do not have much time, you can skip this chapter for now
      and get back to it later if you have any specific questions.
@@ -105,7 +104,7 @@ get "home/pong"
 === Naming a Route
 
 A route should also always have an internal name which doesn’t change.
-In the section xref:http-get-requests-for-singular-resources["HTTP Get
+In the section xref:routing#http-get-requests-for-singular-resources["HTTP Get
 Requests for Singular Resources"] there is the following route:
 
 [source,ruby]
@@ -319,7 +318,7 @@ image::screenshots/chapter06/posts_2011_10_01.png[posts 2011-10-01,title="Posts 
 [[constraints]]
 === Constraints
 
-In the section xref:parameters["Parameters"] I showed you how
+In the section xref:routing#parameters["Parameters"] I showed you how
 you can read out parameters from the URL and pass them to the
 controller. Unfortunately, the entry defined there in the
 `config/routes.rb`
@@ -500,8 +499,8 @@ edit_post GET    /posts/:id/edit(.:format) posts#edit
 ----
 
 You have already encountered these RESTful routes in the chapter
-xref:creating-html-dynamically-with-erb["Scaffolding and REST"]. They
-are required for displaying and editing records.
+xref:first-steps-with-rail#creating-html-dynamically-with-erb["Scaffolding and
+REST"]. They are required for displaying and editing records.
 
 [[selecting-specific-routes-with-only-or-except]]
 === Selecting Specific Routes with only: or except:

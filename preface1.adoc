@@ -12,13 +12,13 @@ I don’t like the idea of coding one big single application throughout
 a book but prefer smaller stand-alone code examples. Therefore you can
 skip a couple of pages or even complete chapters without losing context.
 
-Don’t let people fool you into believing that Ruby on Rails is easy to
-learn. It is not! It's one of the best and most effective frameworks
-to develop web applications but it is hard to understand in the
-beginning. The worst mistake of all is to not learn Ruby before diving
-into Ruby on Rails. To avoid it this book starts with the
-xref:{ch-prefix}ruby-basics#ruby-basics[basics of Ruby]. You will not become a Ruby guru after
-reading it but you’ll understand the basic ideas and that is important.
+Don’t let people fool you into believing that Ruby on Rails is easy to learn. It
+is not! It's one of the best and most effective frameworks to develop web
+applications but it is hard to understand in the beginning. The worst mistake of
+all is to not learn Ruby before diving into Ruby on Rails. To avoid it this book
+starts with the xref:ruby-basics#ruby-basics[basics of Ruby]. You
+will not become a Ruby guru after reading it but you’ll understand the basic
+ideas and that is important.
 
 Shameless plug: Please contact me by e-mail to stefan.wintermeyer@amooma.de
 if you need Ruby on Rails consulting or training.

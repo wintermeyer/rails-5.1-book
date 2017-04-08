@@ -4,35 +4,35 @@
 [[scaffolding-introduction]]
 == Introduction
 
-Scaffolding means purely and simply that a basic _scaffold_ for an
-application is created with a generator. This scaffold not only contains
-the _model_ but also a simple Web GUI (_views_) and of course a
-_controller_. The programming paradigm used for this is REST
-(Representational State Transfer).
+Scaffolding means purely and simply that a basic _scaffold_ for an application
+is created with a generator. This scaffold not only contains the _model_ but
+also a simple Web GUI (_views_) and of course a _controller_. The programming
+paradigm used for this is REST (Representational State Transfer).
 
 You can find a definition of REST at
-http://en.wikipedia.org/wiki/Representational_state_transfer[wikipedia.org/wiki/Representational_state_transfer]. My super
-short version: the inventor Roy Fielding described in 2000 how you can
-access data with a simple set of rules within the concept of http://en.wikipedia.org/wiki/Create,_read,_update_and_delete[CRUD] and the
+http://en.wikipedia.org/wiki/Representational_state_transfer[wikipedia.org/wiki/Representational_state_transfer].
+My super short version: the inventor Roy Fielding described in 2000 how you can
+access data with a simple set of rules within the concept of
+http://en.wikipedia.org/wiki/Create,_read,_update_and_delete[CRUD] and the
 specification of the Hypertext Transfer Protocol (HTTP). CRUD is the
-abbreviation for Create (SQL: INSERT), Read (SQL: SELECT), Update (SQL:
-UPDATE) and Delete (SQL: Delete). This created URLs that are easy to
-read for humans and have a certain logic. In this chapter, you will see
-examples showing the individual paths for the different CRUD functions.
+abbreviation for Create (SQL: INSERT), Read (SQL: SELECT), Update (SQL: UPDATE)
+and Delete (SQL: Delete). This created URLs that are easy to read for humans and
+have a certain logic. In this chapter, you will see examples showing the
+individual paths for the different CRUD functions.
 
-I think the greatest frustration with Rails arises regularly from the
-fact that many beginners use scaffolding to get quick results without
-having proper basic knowledge of Ruby and without knowing what
-ActiveRecord is. They don’t know what to do next. Fortunately, you have
-worked your way through the chapters xref:ruby-basics["Ruby
-Basics"], xref:first-steps-with-rails["First
-Steps with Rails"] and xref:activerecord["ActiveRecord"], so you will be
-able to understand and use scaffolding straight away.
+I think the greatest frustration with Rails arises regularly from the fact that
+many beginners use scaffolding to get quick results without having proper basic
+knowledge of Ruby and without knowing what ActiveRecord is. They don’t know what
+to do next. Fortunately, you have worked your way through the chapters
+xref:ruby-basics#ruby-basics["Ruby Basics"],
+xref:first-steps-with-rails#first-steps-with-rails["First Steps with Rails"] and
+xref:activerecord#activerecord["ActiveRecord"], so you will be able to
+understand and use scaffolding straight away.
 
 == Redirects and Flash Messages
 
-Scaffolding uses redirects and flash messages. So we have to make a
-little detour first to understand scaffolding.
+Scaffolding uses redirects and flash messages. So we have to make a little
+detour first to understand scaffolding.
 
 [[redirects]]
 === Redirects
@@ -180,7 +180,7 @@ anyone would associate the term “_Flash_” with more or less colorful web
 pages that were implemented with the Adobe Shockwave Flash Plug-in. But
 in Ruby on Rails, flash messages are something completely different.
 They are messages that are displayed, for example on the new page after
-a redirect (see xref:redirects[section Redirects]).
+a redirect (see xref:scaffolding-and-rest#redirects[section Redirects]).
 
 Flash messages are good friends with redirects. The two often work
 together in a team to give the user feedback on an action he just
@@ -189,7 +189,7 @@ when a user has logged in. Often the user is redirected back to the
 original page and gets the message “You are now logged in.”
 
 As an example, we are once more constructing the ping pong scenario from
-xref:redirects[section "Redirects"]:
+xref:scaffolding-and-rest#redirects[section "Redirects"]:
 
 [source,bash]
 ----
@@ -392,7 +392,7 @@ $ rails db:seed
 === The Routes
 
 `rails generate scaffold` has created a route (more on this later in
-the chapter xref:routes["Routes"]), a controller and several views for us.
+the chapter xref:routes#routes["Routes"]), a controller and several views for us.
 
 We could also have done all of this manually. Scaffolding is merely an
 automatism that does the work for us for some basic things. This is

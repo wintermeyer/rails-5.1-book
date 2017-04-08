@@ -1,20 +1,19 @@
 [[asset-pipeline]]
 = Asset Pipeline
 
-The asset pipeline offers the Rails developer the opportunity of
-delivering CSS, JavaScript and image files to the browser more optimally
-- in other words, in a more compressed form and therefore more quickly.
-Different CSS files are combined into one big file and delivered to the
-browser with a fingerprint in the file name. This fingerprinting enables
-the browser and any proxy in between to optimally cache the data, so the
-browser can load these files more quickly.
+The asset pipeline offers the Rails developer the opportunity of delivering CSS,
+JavaScript and image files to the browser more optimally - in other words, in a
+more compressed form and therefore more quickly. Different CSS files are
+combined into one big file and delivered to the browser with a fingerprint in
+the file name. This fingerprinting enables the browser and any proxy in between
+to optimally cache the data, so the browser can load these files more quickly.
 
 NOTE: In case you are running on HTTP/2 is might be a good idea to
       break up this flow into smaller chunks to optimize HTTP-Caching.
 
 Within the asset pipeline, you can program CSS, SASS, JavaScript and
-CoffeeScript extensively and clearly, in order to let them be delivered
-later as automatically compressed CSS and JavaScript files.
+CoffeeScript extensively and clearly, in order to let them be delivered later as
+automatically compressed CSS and JavaScript files.
 
 As an example we use once more our web shop with a product scaffold:
 

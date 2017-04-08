@@ -21,7 +21,7 @@ include::test-driven-development.adoc[]
 
 include::active-job.adoc[]
 
-include::actionmailer.adoc[]
+include::action-mailer.adoc[]
 
 include::i18n.adoc[]
 

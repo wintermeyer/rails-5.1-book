@@ -1,12 +1,13 @@
 [[ruby-basics]]
 = Ruby Introduction
 
-This chapter is a tightrope walk between oversimplification and a degree
-of detail that is unnecessary for a Rails newbie. After all, the
-objective is not becoming a Ruby guru, but understanding Ruby on Rails.
-I am going to elaborate on the most important points. The rest is then
-up to you. If you would like to know more about Ruby, then I recommend
-the book "The Ruby Programming Language" by David Flanagan and https://en.wikipedia.org/wiki/Yukihiro_Matsumoto[Yukihiro Matsumoto].
+This chapter is a tightrope walk between oversimplification and a degree of
+detail that is unnecessary for a Rails newbie. After all, the objective is not
+becoming a Ruby guru, but understanding Ruby on Rails. I am going to elaborate
+on the most important points. The rest is then up to you. If you would like to
+know more about Ruby, then I recommend the book "The Ruby Programming Language"
+by David Flanagan and https://en.wikipedia.org/wiki/Yukihiro_Matsumoto[Yukihiro
+Matsumoto].
 
 [quote, Yukihiro Matsumoto]
 It is easy to program in Ruby, but Ruby is not a simple language.
@@ -422,7 +423,7 @@ Hello World!
 ----
 
 I will explain the difference between instance and class methods in more
-detail in xref:class-methods-and-instance-methods[the section called
+detail in xref:ruby-basics#class-methods-and-instance-methods[the section called
 "Class Methods and Instance Methods"]. Another chicken and egg problem.
 
 [[private-methods]]
@@ -2081,7 +2082,7 @@ $ irb
 
 Of course, hashes can store not just strings as objects in the values,
 but - as with arrays - also classes that you define yourself (see
-xref:arrays[the section called "Arrays"]).
+xref:ruby-basics#arrays[the section called "Arrays"]).
 
 [[symbols]]
 ==== Symbols

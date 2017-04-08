@@ -5,33 +5,30 @@
 == Introduction
 
 I have been programming for over 30 years and most of the time I have managed
-quite well without test-driven development (TDD). I am not going to be
-mad at you if you decide to just skip this chapter. You can
-create Rails applications without tests and are not likely to get any
-bad karma as a result (at least, I hope not - but you can never be
-entirely sure with the whole karma thing).
+quite well without test-driven development (TDD). I am not going to be mad at
+you if you decide to just skip this chapter. You can create Rails applications
+without tests and are not likely to get any bad karma as a result (at least, I
+hope not - but you can never be entirely sure with the whole karma thing).
 
-But if you should decide to go for TDD, then I can promise you that it
-is an enlightenment. The basic idea of TDD is that you write a test for
-each programming function to check this function. In the pure TDD
-teaching, this test is written before the actual programming. Yes, you
-will have a lot more to do initially. But later, you can run all the
-tests and see that the application works exactly as you wanted it to.
-The read advantage only becomes apparent after a few weeks or months,
-when you look at the project again and write an extension or new
-variation. Then you can safely change the code and check it still works
-properly by running the tests. This avoids a situation where you find
-yourself saying "oops, that went a bit wrong, I just didn’t think of
-this particular problem".
+But if you should decide to go for TDD, then I can promise you that it is an
+enlightenment. The basic idea of TDD is that you write a test for each
+programming function to check this function. In the pure TDD teaching, this test
+is written before the actual programming. Yes, you will have a lot more to do
+initially. But later, you can run all the tests and see that the application
+works exactly as you wanted it to. The read advantage only becomes apparent
+after a few weeks or months, when you look at the project again and write an
+extension or new variation. Then you can safely change the code and check it
+still works properly by running the tests. This avoids a situation where you
+find yourself saying "oops, that went a bit wrong, I just didn’t think of this
+particular problem".
 
-Often, the advantage of TDD already becomes evident when writing a
-program. Tests can reveal many careless mistakes that you would
-otherwise only have stumbled across much later on.
+Often, the advantage of TDD already becomes evident when writing a program.
+Tests can reveal many careless mistakes that you would otherwise only have
+stumbled across much later on.
 
-This chapter is a brief overview of the topic test-driven development
-with Rails. If you want to find out more, you can
-dive into the official Rails documentation at
-http://guides.rubyonrails.org/testing.html
+This chapter is a brief overview of the topic test-driven development with
+Rails. If you want to find out more, you can dive into the official Rails
+documentation at http://guides.rubyonrails.org/testing.html
 
 NOTE: TDD is just like driving a car. The only way to learn it is by doing it.
 
@@ -65,7 +62,7 @@ $ rails db:migrate
 ----
 
 You already know all about scaffolds (if not, please go and read the chapter
-xref:scaffolding-and-rest["Scaffolding and REST"] first)
+xref:scaffolding-and-rest#scaffolding-and-rest["Scaffolding and REST"] first)
 so you know what the application we have just created does. The scaffold
 created a few tests (they are easy to recognise because the word `test`
 is in the file name).
@@ -94,7 +91,7 @@ good. By default, a test will run through in a standard scaffold.
 
 Let’s edit the `app/models/user.rb` and insert a few validations (if
 these are not entirely clear to you, please read the section
-xref:validation["Validation"]):
+xref:activerecord#validation["Validation"]):
 
 [source,ruby]
 .app/models/user.rb
@@ -537,8 +534,8 @@ http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html[api.rubyonrails.or
 [[static-fixtures]]
 === Static Fixtures
 
-The simplest variant for fixtures is static data. The fixture for `User`
-used in xref:example-for-a-user-in-a-web-shop["Example for a
+The simplest variant for fixtures is static data. The fixture for `User` used in
+xref:test-driven-development#example-for-a-user-in-a-web-shop["Example for a
 User in a Web Shop"] statically looks as follows:
 
 [source,yaml]
