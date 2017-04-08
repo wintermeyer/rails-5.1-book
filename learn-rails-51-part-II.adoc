@@ -12,7 +12,7 @@ v5.1.0, 2016-03-27
 :toclevels: 4
 :source-highlighter: pygments
 
-include::preface.adoc[]
+include::preface2.adoc[]
 
 :leveloffset: +1
 include::chapter-how-to.adoc[]
