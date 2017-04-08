@@ -1,4 +1,4 @@
-[[internationalization]]
+[[i18n]]
 = Internationalization
 
 [[i18n-introduction]]

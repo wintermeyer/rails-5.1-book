@@ -15,18 +15,18 @@ v5.1.0, 2016-03-27
 include::preface2.adoc[]
 
 :leveloffset: +1
-include::chapter-how-to.adoc[]
+include::how-to.adoc[]
 
-include::chapter-test-driven-development.adoc[]
+include::test-driven-development.adoc[]
 
-include::chapter-active_job.adoc[]
+include::active-job.adoc[]
 
-include::chapter-actionmailer.adoc[]
+include::actionmailer.adoc[]
 
-include::chapter-i18n.adoc[]
+include::i18n.adoc[]
 
-include::chapter-asset-pipeline.adoc[]
+include::asset-pipeline.adoc[]
 
-include::chapter-caching.adoc[]
+include::caching.adoc[]
 
-include::chapter-action-cable.adoc[]
+include::action-cable.adoc[]
