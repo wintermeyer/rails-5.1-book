@@ -1,4 +1,4 @@
-[[routes]]
+[[routing]]
 = Routes
 
 == Introduction

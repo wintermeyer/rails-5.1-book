@@ -1,4 +1,4 @@
-[[preface]]
+[[preface1]]
 = Preface
 
 This is my fifth Ruby on Rails book. It's splitted into two parts.

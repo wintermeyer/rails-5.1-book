@@ -1,6 +1,6 @@
 = Learn Rails 5.1 Part I
 Stefan Wintermeyer
-v5.1.0, 2016-03-27
+v5.1.0, 2016-04-08
 :doctype: book
 :producer: Stefan Wintermeyer
 :keywords: Ruby on Rails, Ruby on Rails 5.1, Rails, Ruby, Framework, MVC
@@ -10,23 +10,23 @@ v5.1.0, 2016-03-27
 :toclevels: 2
 :source-highlighter: pygments
 
-include::preface-I.adoc[]
+include::preface1.adoc[]
 
 :leveloffset: +1
-include::chapter-how-to.adoc[]
+include::how-to.adoc[]
 
-include::chapter-ruby-basics.adoc[]
+include::ruby-basics.adoc[]
 
-include::chapter-first-steps-with-rails.adoc[]
+include::first-steps-with-rails.adoc[]
 
-include::chapter-activerecord.adoc[]
+include::activerecord.adoc[]
 
-include::chapter-scaffolding.adoc[]
+include::scaffolding-and-rest.adoc[]
 
-include::chapter-routing.adoc[]
+include::routing.adoc[]
 
-include::chapter-bundler-and-gems.adoc[]
+include::bundler-and-gems.adoc[]
 
-include::chapter-forms.adoc[]
+include::forms.adoc[]
 
-include::chapter-cookies-and-sessions.adoc[]
+include::cookies-and-sessions.adoc[]
