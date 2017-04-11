@@ -33,3 +33,5 @@ include::bundler-and-gems.adoc[]
 include::forms.adoc[]
 
 include::cookies-and-sessions.adoc[]
+
+include::installing.adoc[]
