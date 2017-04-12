@@ -9,7 +9,7 @@
 #   bundle config --local build.nokogiri --use-system-libraries
 #   bundle --path=.bundle/gems
 #
-# NOTE: The gems are installed under the path .bundle/gems.
+# NOTE The gems are installed under the path .bundle/gems.
 #
 # Finally, run a named task using the `bundle exec rake` command:
 #
@@ -46,7 +46,7 @@ end
 
 # TIP invoke using epub[ebook-validate] to validate
 desc 'Build the EPUB3 format'
-task :epub, [:attrs] do |task, args|
+task :epub, [:attrs] do |_, args|
   require 'asciidoctor-epub3'
   Asciidoctor.convert_file MASTER_FILENAME,
     safe: :unsafe,
@@ -62,7 +62,7 @@ task :mobi do
   Asciidoctor.convert_file MASTER_FILENAME,
     safe: :unsafe,
     backend: 'epub3',
-    attributes: 'epub3-stylesdir=styles/epub3 ebook-format=kf8',
+    attributes: 'epub3-stylesdir=styles/epub3 ebook-format=kf8 ebook-compress=huffdic',
     to_dir: BUILD_DIR,
     mkdirs: true
   File.unlink %(#{BUILD_DIR}/#{File.basename MASTER_FILENAME, '.*'}-kf8.epub)

@@ -499,7 +499,7 @@ edit_post GET    /posts/:id/edit(.:format) posts#edit
 ----
 
 You have already encountered these RESTful routes in the chapter
-xref:first-steps-with-rail#creating-html-dynamically-with-erb["Scaffolding and
+xref:first-steps-with-rails#creating-html-dynamically-with-erb["Scaffolding and
 REST"]. They are required for displaying and editing records.
 
 [[selecting-specific-routes-with-only-or-except]]

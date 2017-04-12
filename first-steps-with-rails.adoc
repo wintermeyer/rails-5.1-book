@@ -371,7 +371,7 @@ Rails.application.routes.draw do
 end
 ----
 
-Alter on we are going to dive more into xref:routes#routes[Routes].
+Alter on we are going to dive more into xref:routing#routing[Routes].
 
 IMPORTANT: A static file in the directory `public` always has higher
            priority than a route in the `config/routes.rb`! So if we
@@ -522,7 +522,7 @@ Now you understand how Ruby code is used in the view.
 [qanda]
 I don't understand anything. I can't cope with the Ruby code. Could you please explain it again?::
   Is it possible that you have not completely worked your way through
-  xref:routes#routes[Ruby Basics]? Please do take
+  xref:ruby-basics#ruby-basics[Ruby Basics]? Please do take
   your time with it and have another thorough look. Otherwise, the rest
   won't make any sense here.
 I can understand the Ruby code and the HTML output. But I don't get why some HTML code was rendered around it if I didn't even write that HTML code. Where does it come from, and can I influence it?::
@@ -1159,7 +1159,7 @@ You will find all the views in the directory `app/views/.`
 === Controller
 
 Once a web page call has ended up in a route (see
-xref:routes#routes[chapter "Routes"]), it goes from there to
+xref:routing#routing[chapter "Routes"]), it goes from there to
 the controller. The route specifies a certain method (action) as target.
 This method can then fulfil the desired tasks (such as finding a
 specific set of data and saving it in an instance variable) and then

@@ -392,7 +392,7 @@ $ rails db:seed
 === The Routes
 
 `rails generate scaffold` has created a route (more on this later in
-the chapter xref:routes#routes["Routes"]), a controller and several views for us.
+the chapter xref:routing#routing["Routes"]), a controller and several views for us.
 
 We could also have done all of this manually. Scaffolding is merely an
 automatism that does the work for us for some basic things. This is
