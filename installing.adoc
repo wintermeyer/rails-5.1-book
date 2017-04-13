@@ -53,10 +53,10 @@ Installation of the packages required for the RVM installation:
 [source,bash]
 ----
 root@debian:~# apt-get -y install curl gawk g++ \
-make  libreadline6-dev zlib1g-dev libssl-dev \
+make libreadline6-dev zlib1g-dev libssl-dev \
 libyaml-dev libsqlite3-dev sqlite3 autoconf \
 libgdbm-dev libncurses5-dev libtool bison nodejs \
-pkg-config libffi-dev libgmp-dev libgmp-dev
+pkg-config libffi-dev libgmp-dev libgmp-dev git
 ----
 
 Now is a good time to log out as root:
@@ -101,10 +101,12 @@ xyz@debian:~$ gem install rails
 xyz@debian:~$
 ----
 
-NOTE: `gem install rails` installs the current stable Rails version.
-      You can use the format `gem install rails -v 5.1.0` to install
-      a specific version and `gem install rails --pre` to install a
-      current beta version.
+TIP: You need to run `gem install rails --pre` in case Rails 5.1 is still
+     beta while you read this text.
+
+`gem install rails` installs the current stable Rails version. You can use the
+format `gem install rails -v 5.1.0` to install a specific version and `gem
+install rails --pre` to install a current beta version.
 
 RVM, Ruby 2.4 and Rails 5.1 are now installed. You can check it
 with the following commands.
@@ -179,10 +181,12 @@ $ gem install rails
 $
 ----
 
-NOTE: `gem install rails` installs the current stable Rails version.
-      You can use the format `gem install rails -v 5.1.0` to install
-      a specific version and `gem install rails --pre` to install a
-      current beta version.
+TIP: You need to run `gem install rails --pre` in case Rails 5.1 is still
+     beta while you read this text.
+
+`gem install rails` installs the current stable Rails version. You can use the
+format `gem install rails -v 5.1.0` to install a specific version and `gem
+install rails --pre` to install a current beta version.
 
 RVM, Ruby 2.4 and Rails 5.1 are now fully installed. You can check it
 with the following commands.
