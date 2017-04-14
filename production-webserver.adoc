@@ -1,14 +1,14 @@
 [[production-webserver]]
 = Web Server in Production Mode
 
-This chapter walks you through the setup process of a production server
-which runs Nginx as a reverse proxy webserver and Puma as the Ruby on
-Rails webserver behind the Nginx. We start with a fresh Debian system
-and install all the software we need. The Rails project will be run with
-Ruby 2.4 which gets installed with RVM and runs for the user deployer.
+This chapter walks you through the setup process of a production server which
+runs Nginx as a reverse proxy webserver and Puma as the Ruby on Rails webserver
+behind the Nginx. We start with a fresh Debian system and install all the
+software we need. The Rails 5.1 project will be run with Ruby 2.4 which gets
+installed with RVM and runs for the user deployer.
 
-The example Rails application we use is called `blog`. It will contain a
-`post` scaffold.
+The example Rails application we use is called `blog`. It will contain a `post`
+scaffold.
 
 WARNING: If you have never set up a Nginx or Apache web server by
          yourself on a Linux system before you will likely get lost
@@ -336,7 +336,9 @@ $ /etc/init.d/nginx restart
 $
 ----
 
-You're all set. Your new Rails project is online.
+You're all set. Your new Rails project is online. You can access the `posts`.
+You'll have to configure the `root` path in `config/routes.rb` to get a proper
+root path URL.
 
 [[loading-updated-versions-of-the-rails-project]]
 === Loading Updated Versions of the Rails Project
