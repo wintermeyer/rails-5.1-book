@@ -33,3 +33,5 @@ include::caching.adoc[]
 include::action-cable.adoc[]
 
 include::production-webserver.adoc[]
+
+include::secrets.adoc[]
