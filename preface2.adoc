@@ -4,9 +4,18 @@
 This is the second part of my Ruby on Rails 5.1 book. The first part
 covers all the basics. This one covers the more advance stuff.
 
-Shameless plug: Please contact me by e-mail to stefan.wintermeyer@amooma.de
-if you need Ruby on Rails consulting or training.
+== Newsletter and Updates
+
+* I publish a free Ruby on Rails email newsletter which offers news and general
+  information about Rails. You can subscribe it at
+  `https://www.amooma.de/newsletters/`
+* In case you prefer Twitter: `https://twitter.com/wintermeyer`
+
+== Consulting and Training
+
+Yes, I do provide Rails consulting and training. Please contact me by
+email to stefan.wintermeyer@amooma.de with your request.
+
+Have fun with Ruby on Rails!
 
 _Stefan Wintermeyer_
-
-PS: I post updates about this book and Rails in general at https://twitter.com/wintermeyer

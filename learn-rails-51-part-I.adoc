@@ -1,6 +1,6 @@
 = Learn Rails 5.1 Part I
 Stefan Wintermeyer
-v5.1.0, 2016-04-08
+v5.1.0, 2016-04-15
 :doctype: book
 :producer: Stefan Wintermeyer
 :keywords: Ruby on Rails, Ruby on Rails 5.1, Rails, Ruby, Framework, MVC
