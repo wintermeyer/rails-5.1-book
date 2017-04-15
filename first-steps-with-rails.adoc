@@ -107,7 +107,7 @@ TIP: Depending on the operating system (for example, Mac OS X) and on
 ----
 $ rails server
 => Booting Puma
-=> Rails 5.1.0.rc1 application starting in development on http://localhost:3000
+=> Rails 5.1.0 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
 Puma starting in single mode...
 * Version 3.8.2 (ruby 2.4.0-p0), codename: Sassy Salamander
@@ -121,7 +121,7 @@ The start of the Rails application is looking good. It tells us:
 
 [source,bash]
 ----
-=> Rails 5.1.0.rc1 application starting in development on http://localhost:3000
+=> Rails 5.1.0 application starting in development on http://localhost:3000
 ----
 
 So let's go to the URL http://localhost:3000 in your web browser.
@@ -177,7 +177,7 @@ Now start the Rails web server with `rails server`
 ----
 $ rails server
 => Booting Puma
-=> Rails 5.1.0.rc1 application starting in development on http://localhost:3000
+=> Rails 5.1.0 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
 Puma starting in single mode...
 * Version 3.8.2 (ruby 2.4.0-p0), codename: Sassy Salamander
@@ -821,7 +821,7 @@ Start the Rails console with the command `rails console`:
 ----
 $ rails console
 Running via Spring preloader in process 18395
-Loading development environment (Rails 5.1.0.rc1)
+Loading development environment (Rails 5.1.0)
 irb(main):001:0>
 ----
 
@@ -851,7 +851,7 @@ later in the proper application:
 ----
 $ rails console
 Running via Spring preloader in process 19371
-Loading development environment (Rails 5.1.0.rc1)
+Loading development environment (Rails 5.1.0)
 >> Rails.env
 => "development"
 >> Rails.root
@@ -879,7 +879,7 @@ TIP: One of my best buddies when developing Rails applications
 ----
 $ rails console
 Running via Spring preloader in process 19799
-Loading development environment (Rails 5.1.0.rc1)
+Loading development environment (Rails 5.1.0)
 >> app.url_for(controller: 'game', action: 'ping')
 => "http://www.example.com/game/ping"
 >> app.get '/game/ping'

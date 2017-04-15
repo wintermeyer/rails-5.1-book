@@ -209,7 +209,7 @@ Rails project is locate. Fire up the console and use
 ----
 $ rails console
 Running via Spring preloader in process 19706
-Loading development environment (Rails 5.1.0.rc1)
+Loading development environment (Rails 5.1.0)
 >> ActionCable.server.broadcast 'web_notifications_channel',
 message: '<p>Hello World!</p>'
 [ActionCable] Broadcasting to web_notifications_channel:

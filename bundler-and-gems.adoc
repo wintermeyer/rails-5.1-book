@@ -118,8 +118,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actioncable (5.1.0.rc1)
-      actionpack (= 5.1.0.rc1)
+    actioncable (5.1.0)
+      actionpack (= 5.1.0)
       nio4r (~> 2.0)
       websocket-driver (~> 0.6.1)
       [...]

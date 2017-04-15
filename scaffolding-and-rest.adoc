@@ -688,7 +688,7 @@ Now we start the Rails web server:
 ----
 $ rails server
 => Booting Puma
-=> Rails 5.1.0.rc1 application starting in development on http://localhost:3000
+=> Rails 5.1.0 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
 Puma starting in single mode...
 * Version 3.8.2 (ruby 2.4.0-p0), codename: Sassy Salamander
@@ -1191,7 +1191,7 @@ The same message will be displayed in the log:
 ----
 $ rails server
 => Booting Puma
-=> Rails 5.1.0.rc1 application starting in development on http://localhost:3000
+=> Rails 5.1.0 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
 Puma starting in single mode...
 * Version 3.8.2 (ruby 2.4.0-p0), codename: Sassy Salamander
