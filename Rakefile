@@ -19,7 +19,7 @@
 #
 # $ bundle exec rake -T
 #
-MASTER_FILENAME='learn-rails-51-part-I.adoc'
+MASTER_FILENAME='learn-rails-51-part-II.adoc'
 BUILD_DIR='output'
 autoload :FileUtils, 'fileutils'
 
