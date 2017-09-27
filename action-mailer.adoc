@@ -175,11 +175,11 @@ NOTE: I'll take a moment for ActiveJob to send the email. Be patient.
 $ rails console
 Running via Spring preloader in process 1795
 Loading development environment (Rails 5.1.0)
->> User.create(name: "Wintermeyer", email: "stefan.wintermeyer@amooma.de")
+>> User.create(name: "Wintermeyer", email: "sw@wintermeyer-consulting.de")
    (0.1ms)  begin transaction
   SQL (0.5ms)  INSERT INTO "users" ("name", "email", "created_at",
   "updated_at") VALUES (?, ?, ?, ?)  [["name", "Wintermeyer"],
-  ["email", "stefan.wintermeyer@amooma.de"], ["created_at",
+  ["email", "sw@wintermeyer-consulting.de"], ["created_at",
   "2017-03-25 10:50:18.242475"], ["updated_at",
   "2017-03-25 10:50:18.242475"]]
 Enqueued ActionMailer::DeliveryJob
@@ -187,7 +187,7 @@ Enqueued ActionMailer::DeliveryJob
 arguments: "NotificationMailer", "new_account", "deliver_now",
 #<GlobalID:0x007fe31dcb3920 @uri=#<URI::GID gid://webshop/User/1>>
    (1.1ms)  commit transaction
-=> #<User id: 1, name: "Wintermeyer", email: "stefan.wintermeyer@amooma.de",
+=> #<User id: 1, name: "Wintermeyer", email: "sw@wintermeyer-consulting.de",
 created_at: "2017-03-25 10:50:18", updated_at: "2017-03-25 10:50:18">
 >>   User Load (0.1ms)  SELECT  "users".* FROM "users"
 WHERE "users"."id" = ? LIMIT ?  [["id", 1], ["LIMIT", 1]]
@@ -200,10 +200,10 @@ arguments: "NotificationMailer", "new_account", "deliver_now",
   Rendering notification_mailer/new_account.text.erb within layouts/mailer
   Rendered notification_mailer/new_account.text.erb within layouts/mailer (0.3ms)
 NotificationMailer#new_account: processed outbound mail in 141.0ms
-Sent mail to stefan.wintermeyer@amooma.de (26.2ms)
+Sent mail to sw@wintermeyer-consulting.de (26.2ms)
 Date: Sat, 25 Mar 2017 11:50:28 +0100
 From: from@example.com
-To: stefan.wintermeyer@amooma.de
+To: sw@wintermeyer-consulting.de
 Message-ID: <58d64b749f300_7033ff18ee59aec3913f@SW.local.mail>
 Subject: Account Wintermeyer is active
 Mime-Version: 1.0
@@ -338,10 +338,10 @@ This means the sent e-mail would look like this:
 
 [source,text]
 ----
-Sent mail to stefan.wintermeyer@amooma.de (50ms)
+Sent mail to sw@wintermeyer-consulting.de (50ms)
 Date: Wed, 30 May 2012 17:35:21 +0200
 From: from@example.com
-To: stefan.wintermeyer@amooma.de
+To: sw@wintermeyer-consulting.de
 Message-ID: <4fc63e39e356a_aa083fe366028cd8803c7@MacBook.local.mail>
 Subject: The new account Wintermeyer is active.
 Mime-Version: 1.0

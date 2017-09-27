@@ -14,7 +14,7 @@ covers all the basics. This one covers the more advance stuff.
 == Consulting and Training
 
 Yes, I do provide Rails consulting and training. Please contact me by
-email at stefan.wintermeyer@amooma.de with your request.
+email at sw@wintermeyer-consulting.de with your request.
 
 Have fun with Ruby on Rails!
 
